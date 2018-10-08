@@ -6,6 +6,7 @@ After discussing it, we decided our leader would be Stefan Georgiev;
 
 The member ot Team Rocket are :
     Dimityr Vutov,
+    Stefan Georgiev - Capitan^,
     Stefka Marinova;
     
 We have decided that we are going to make a calendar with a built in To-do list;
