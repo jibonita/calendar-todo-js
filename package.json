@@ -1,0 +1,17 @@
+{
+    "name": "demos",
+    "version": "1.0.0",
+    "description": "",
+    "main": "eslint-demo.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "babel-eslint": "^8.2.6",
+        "eslint": "^5.3.0",
+        "eslint-config-google": "^0.9.1"
+    }
+}
