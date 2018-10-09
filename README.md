@@ -5,9 +5,9 @@ The name that we stopped at for our team is "Team Rocket" :);
 After discussing it, we decided our leader would be Stefan Georgiev;
 
 The member ot Team Rocket are :
-    Dimityr Vutov,
-    Stefan Georgiev,
-    Stefka Marinova;
+    Dimityr Vutov (Dimitar.Vutov),
+    Stefan Georgiev (sgg_100),
+    Stefka Marinova (jibonita);
     
 We have decided that we are going to make a calendar with a built in To-do list;
 
