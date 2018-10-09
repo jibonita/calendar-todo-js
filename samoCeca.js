@@ -1,0 +1,1 @@
+const ceca = 'bydi velik';
