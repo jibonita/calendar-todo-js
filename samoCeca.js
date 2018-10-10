@@ -1,3 +1,3 @@
-let ceca = 'bydi velik';
+const ceca = 'bydi velik';
 
-const p = 41;
+const tozi = '111';
