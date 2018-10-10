@@ -1,0 +1,30 @@
+#cal-container{
+    width: 60%;
+    height: 200px;
+    Qborder:1px solid red;
+}
+
+#cal-container .cell{
+    display: inline-block;
+    width: 14%;
+    box-sizing: border-box;
+    border: 1px solid green;
+    
+}
+.cell-content{
+    
+}    
+
+#cal-container .cell:after {
+    content: "";
+    display: block;
+    padding-bottom: 90%; 
+  }
+
+ 
+
+  #month-name{
+      margin: 10px 30px;
+  }
+
+ 
