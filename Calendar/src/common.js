@@ -56,9 +56,9 @@ const initializeCalendar = function(id){
    
     calendarContainer = $(id);
     for (let count = 0; count < 31; count++) {
-        // const element = $('<div class="cell"></div>');
-        // element.append(`<div class="cell-content" id="d${count+1}">${count+1}</div>`);
-        const element = $(`<div class="cell"  id="d${count+1}">${count+1}</div>`);
+        const element = $('<div class="cell"></div>');
+        element.append(`<div class="cell-content" id="d${count+1}">${count+1}</div>`);
+        //const element = $(`<div class="cell"  id="d${count+1}">${count+1}</div>`);
         //element.append(`<div class="cell-content" id="d${count+1}">${count+1}</div>`);
         element.click(viewDayInfo);
         calendarContainer.append(element);
@@ -120,6 +120,7 @@ const fillDataToCalendar = () => {
 
 const insertDayInfoInCell = (y,m,d) => {
     //return y+' '+monthNames[m] + ' '+d;
+    return d;
     return y+' '+monthNames[m] + ' '+d+'\n'+y+' '+monthNames[m] + ' '+d
     +'\n'+y+' '+monthNames[m] + ' '+d
     +'\n'+y+' '+monthNames[m] + ' '+d;

@@ -12,13 +12,15 @@
     
 }
 .cell-content{
-    
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }    
 
 #cal-container .cell:after {
     content: "";
     display: block;
-    padding-bottom: 90%; 
+    padding-bottom: 100%; 
   }
 
  
