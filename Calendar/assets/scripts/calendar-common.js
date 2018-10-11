@@ -1,35 +1,14 @@
 import * as dateHelper from './date-helper.js';
-import * as constants from './constants.js';
+import {constants} from './constants.js';
 
 
 
 let calendarContainer;
 let clicked;
 
-$( document ).ready(function(){
-    initializeCalendar(constants.CALENDAR_CONTAINER_ID);
-    setCalendarButtonsEvents();
-});
-
-const setCalendarButtonsEvents = () => {
-    $('#prev').click(() => {
-        displayNewMonth(-1)
-    });
-    $('#next').click(() => {
-        displayNewMonth(1)
-    });
-    $('#triggerclose').click(() => {
-        $(constants.CALENDAR_CONTAINER_ID).trigger('todoclosed');
-    });
-
-    $(constants.CALENDAR_CONTAINER_ID).on('todoclosed', ()=>{
-        updateCellFromToDo(clicked);
-    })
-};
-
 
 const initializeCalendar = function(id){
-    let today = new Date(2019, 1 , 1, 0,0,0,0);
+    let today = new Date();
     dateHelper.setTodaysMonthYear(today);
    
     calendarContainer = $(id);
@@ -49,33 +28,46 @@ const initializeCalendar = function(id){
    // $(calendarContainer,'dataUpdate');
 };
 
+const setCalendarButtonsEvents = () => {
+    $('#prev').click(() => {
+        displayNewMonth(-1)
+    });
+    $('#next').click(() => {
+        displayNewMonth(1)
+    });
+    $('#triggerclose').click(() => {
+        $(constants.CALENDAR_CONTAINER_ID).trigger('todoclosed');
+    });
+
+    $(constants.CALENDAR_CONTAINER_ID).on('todoclosed', ()=>{
+        updateCellFromToDo(clicked);
+    })
+};
 
 const setMarginOfFirstDay = (date) => {    
     let dayOfWeekOf1st = dateHelper.getThe1stOfMonth(date) ;
-    //dateHelper.currentMonth = date.getMonth();
     dateHelper.setCurrentMonth(date.getMonth());
     if(dayOfWeekOf1st === 0) dayOfWeekOf1st = 7;
     
     $('.cell:first-child').css('margin-left', (dayOfWeekOf1st-1)*constants.CELL_PERCENTAGE_WIDTH+'%');
-    $('#month-name').text(dateHelper.getMonthName(dateHelper.currentMonth));
+    $('#month-name').text(dateHelper.getMonthName(dateHelper.currentMonth)+' ' + dateHelper.currentYear);
 };
 
 const displayNewMonth = (dir)=>{
     const updateCurrentMY = (dir)=> {
-        //You can introduce func variable curM and curY here
-        //dateHelper.currentMonth += dir;
-        dateHelper.setCurrentMonth(dateHelper.currentMonth + dir);
+        let y = dateHelper.currentYear;
+        let m = dateHelper.currentMonth;
+
+        dateHelper.setCurrentMonth(m + dir);
+        m = dateHelper.currentMonth;
+
         if(dateHelper.currentMonth<0) {
-            // dateHelper.currentYear--;
-            // dateHelper.currentMonth = 11;
-            dateHelper.setCurrentYear(dateHelper.currentYear-1);
+            dateHelper.setCurrentYear(y-1);
             dateHelper.setCurrentMonth(11);
         }
         else{
-            // dateHelper.currentYear += Math.floor(dateHelper.currentMonth / 12);
-            // dateHelper.currentMonth = dateHelper.currentMonth % 12;
-            dateHelper.setCurrentYear(dateHelper.currentYear + Math.floor(dateHelper.currentMonth / 12));
-            dateHelper.setCurrentMonth(dateHelper.currentMonth % 12);
+            dateHelper.setCurrentYear(y + Math.floor(m / 12));
+            dateHelper.setCurrentMonth(m % 12);
         }
     };
     
@@ -103,8 +95,6 @@ const fillDataToCalendar = () => {
 
 const insertDayInfoInCell = (y,m,d) => {
     return d;
-    return y+' '+constants.getMonthName(m) + ' '+d;
-    
 };
 
 const hideUnusedCells = (days) => {
@@ -145,3 +135,8 @@ const updateCellFromToDo = () => {
         //clean tasks icon - no tasks on this day
     }
 };
+
+export{
+    initializeCalendar,
+    setCalendarButtonsEvents
+ }
