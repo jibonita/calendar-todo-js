@@ -6,6 +6,7 @@ import {constants} from './constants.js';
 let calendarContainer;
 let clicked;
 
+
 const initializeCalendar = function(id){
     let today = new Date();
     dateHelper.setTodaysMonthYear(today);

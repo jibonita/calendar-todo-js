@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=<1.0>">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="./styles/styles.css" rel="stylesheet" />
+    <link href="assets/css/calendar-styles.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/todos.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -13,20 +13,23 @@
     <title>Calendar Planner by Team Raketa</title>
 </head>
 <body>
-    <span id="month-name"></span><button id="prev">Prev</button> &nbsp;&nbsp;<button id="next">Next</button>
-    <button id="triggerclose">Trigger Close Todo</button>
-    <div id="cal-container"></div>
+     <div id="main-calendar-container">
+        <button id="prev">Prev</button> &nbsp;&nbsp;<button id="next">Next</button>
+        <span id="month-name"></span>
+        <button id="triggerclose">Trigger Close Todo</button>
+        <div id="week-days">
+            <div class="weekday">Monday</div><div class="weekday">Tuesday</div><div class="weekday">Wednesday</div>
+            <div class="weekday">Thursday</div><div class="weekday">Friday</div><div class="weekday">Saturday</div><div class="weekday">Sunday</div>
+        </div>
+        <div id="cal-container"></div>
+    </div>
+
     <div id="container" >
 		<div><span id="txt" class="clock"></span></div>
 		<h1>To-Do List <span id="toggle-form"><i class="fa fa-plus"></i></span></h1>
 		<input class='addToDo' type="text" placeholder="Add New Todo">
 
-		<ul id="toDos">
-			<!-- <li><span class="trash"><i class="fa fa-trash"></i></span> Buy tobacco<span><i class="fa fa-star"></i></span></li>
-			<li><span class="trash"><i class="fa fa-trash"></i></span> Make a shisha<span><i class="fa fa-star"></i></span></li>
-			<li><span class="trash"><i class="fa fa-trash"></i></span> Chill<span><i class="fa fa-star"></i></span></li> -->
-
-		</ul>
+		<ul id="toDos"></ul>
 	</div>
 	
 	<script type="text/javascript" src="assets/js/todos.js"></script>
