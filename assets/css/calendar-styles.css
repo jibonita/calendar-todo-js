@@ -18,6 +18,7 @@
     background: url("./../img/actions-view-calendar-day-icon.png");
     background-size: contain;
 }
+
 .cell-content{
     position: absolute;
     width: 100%;

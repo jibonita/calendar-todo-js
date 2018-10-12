@@ -1,14 +1,13 @@
-import {toDosDataInfo} from './databse.js';
+import { toDosDataInfo } from './databse.js';
 let toDoElement;
-let gP = {
-   
+const gP = {
 searchForDate: function(stringId) {
   toDoElement= toDosDataInfo.filter((x) => x.key === stringId)[0];
-  if (toDoElement === undefined) {
+  if (toDoElement !== Object) {
     toDoElement = {
         key: stringId,
-        toDo:[],
-    }
+        toDo: [],
+    };
     toDosDataInfo.push(toDoElement);
   }
   return toDoElement;
@@ -20,15 +19,13 @@ pushToDate: function(str) {
   });
     },
     editToDo: function(li, str) {
-      toDoElement.toDo[li].value = str
+      toDoElement.toDo[li].value = str;
     },
     deleteToDo: function(li) {
       toDoElement.toDo.splice([li], 1);
     },
-    editImportance: function(li){
+    editImportance: function(li) {
       toDoElement.toDo[li].important = !toDoElement.toDo[li].important;
-    }
-}
-
-
-export {gP};
+    },
+};
+export { gP };

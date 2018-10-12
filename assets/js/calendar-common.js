@@ -12,9 +12,9 @@ const initializeCalendar = function(id) {
 
     calendarContainer = $(id);
     for (let count = 0; count < 31; count++) {
-        const element = $('<div class="cell"></div>');
-        element
-        .append(`<div class="cell-content" id="d${count+1}">${count+1}</div>`);
+        const element = $(`<div class="cell" id="d${count+1}">${count+1}</div>`);
+     // element
+     // .append(`<div class="cell-content" id="d${count+1}">${count+1}</div>`);
         element.click(viewDayInfo);
         calendarContainer.append(element);
     }
@@ -79,6 +79,7 @@ const viewDayInfo = function(event) {
     clicked = dateHelper
     .currentYear+'-'+dateHelper.currentMonth+'-'+event.target.id;
     console.log('show TODO data for '+clicked);
+    $('body').trigger('opentodo');
 };
 
 const fillDataToCalendar = () => {

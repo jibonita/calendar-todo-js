@@ -1,10 +1,11 @@
-import {gP} from './dbProcesses.js';
-
-import {constants} from './constants.js';
+import { gP } from './dbProcesses.js';
+import { eH } from './eventHandler.js';
+import { constants } from './constants.js';
 import * as calendar from './calendar-common.js';
 
-$( document ).ready(function(){
+$( document ).ready(function() {
     calendar.initializeCalendar(constants.CALENDAR_CONTAINER_ID);
     calendar.setCalendarButtonsEvents();
+    eH.openToDoHandler();
 });
 

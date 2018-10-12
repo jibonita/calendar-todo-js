@@ -12,6 +12,6 @@ const toDosDataInfo = [{
             value: 'chill',
             important: false,
         },
-    ]
+    ],
 }];
-export {toDosDataInfo}
+export { toDosDataInfo };
