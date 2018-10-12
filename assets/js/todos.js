@@ -20,7 +20,6 @@ const toDosDataInfo = [{
 
 const keyTofind = 20181010;
 const ceca = toDosDataInfo.filter((x) => x.key === keyTofind);
-console.log(ceca.ceca);
 
 // if (toDosDataInfo[0].toDo.length != 0) {
 if (ceca[0].toDo.length != 0) {
@@ -38,7 +37,6 @@ if (ceca[0].toDo.length != 0) {
 // ////////////////////////////// li to input
 const curWords = [];
 
-$('body').click(() => console.log())
 
 $('ul').on('click', 'li', function () {
 	const textToFix = $(this).text();
@@ -129,4 +127,6 @@ $('ul').on('click', 'span.star', function (event) {
 	event.stopPropagation();
 });
 
-$('#back-to-calendar').click(ceca.hideToDoList())
+$('#back-to-calendar').click(function () {
+	$('#container').trigger('todoclosed');
+})
