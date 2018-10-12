@@ -1,3 +1,5 @@
+//import * as ceca from './toDoFunctions.js';
+
 const toDosDataInfo = [{
 	key: 20181010,
 	toDo: [{
@@ -18,7 +20,7 @@ const toDosDataInfo = [{
 
 const keyTofind = 20181010;
 const ceca = toDosDataInfo.filter((x) => x.key === keyTofind);
-console.log(ceca);
+console.log(ceca.ceca);
 
 // if (toDosDataInfo[0].toDo.length != 0) {
 if (ceca[0].toDo.length != 0) {
@@ -36,7 +38,9 @@ if (ceca[0].toDo.length != 0) {
 // ////////////////////////////// li to input
 const curWords = [];
 
-$('ul').on('click', 'li', function() {
+$('body').click(() => console.log())
+
+$('ul').on('click', 'li', function () {
 	const textToFix = $(this).text();
 	curWords.push(textToFix);
 	const input = `<input class='addToDo' type='text' value='${textToFix}'>`;
@@ -60,7 +64,7 @@ const simpleFunctionToFindIndex = (textToFind) => {
 };
 
 
-$('ul').on('keypress', 'input', function(event) {
+$('ul').on('keypress', 'input', function (event) {
 	if (event.which === 13) {
 		const todoText = $(this).val();
 
@@ -76,11 +80,11 @@ $('ul').on('keypress', 'input', function(event) {
 // ///////////////////////////////////////////
 
 // ////////////////////////////////////////////// triene
-$('ul').on('click', 'span.trash', function(event) {
+$('ul').on('click', 'span.trash', function (event) {
 	const index = simpleFunctionToFindIndex($(this).parent().text());
 	ceca[0].toDo.splice(index, 1);
 
-	$(this).parent().fadeOut(500, function() {
+	$(this).parent().fadeOut(500, function () {
 		$(this).remove();
 	});
 	event.stopPropagation();
@@ -91,7 +95,7 @@ console.log(ceca[0].toDo.length);
 // /////////////////////////////////////////////////
 
 // //////////////////////////////////////////// addToDo
-$('input[type=\'text\']').keypress(function(event) {
+$('input[type=\'text\']').keypress(function (event) {
 	if (event.which === 13) {
 		const todoText = $(this).val();
 		$(this).val('');
@@ -110,13 +114,13 @@ $('input[type=\'text\']').keypress(function(event) {
 // ///////////////////////////
 
 // //////////////////////////// + toggle input
-$('#toggle-form').click(function() {
+$('#toggle-form').click(function () {
 	$('input[type=\'text\']').fadeToggle();
 });
 // ///////////////////////////////////
 
 // ///////////////////////////////// star importnt toggle
-$('ul').on('click', 'span.star', function(event) {
+$('ul').on('click', 'span.star', function (event) {
 	const index = simpleFunctionToFindIndex($(this).parent().text());
 	console.log(index);
 	ceca[0].toDo[index].important = !ceca[0].toDo[index].important;
@@ -124,3 +128,5 @@ $('ul').on('click', 'span.star', function(event) {
 
 	event.stopPropagation();
 });
+
+$('#back-to-calendar').click(ceca.hideToDoList())

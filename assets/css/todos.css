@@ -74,8 +74,11 @@ input:focus {
 #container {
 	width: 360px;
 	margin: 100px auto;
-	background: #f7f7f7;
+	/* background: #f7f7f7; */
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+
 }
 
 .completed {
@@ -99,6 +102,32 @@ li> :last-child :hover {
 
 .important {
 	color: #e74c3c;
+}
+
+#back-to-calendar {
+	text-align: center;
+	border: #666 1px solid;
+	border-bottom: none;
+	padding: 5px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background: rgb(199, 199, 199);
+	/* width: auto;
+	margin: 0 auto;
+	float: left; */
+}
+
+#back-to-calendar:hover {
+	color: #52dbf3;
+	background: rgb(81, 83, 81);
+	text-decoration: underline;
+}
+
+#clock {
+	position: relative;
+	background: #f7f7f7;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	text-align: center;
 }
 
 /* .clock {
