@@ -13,6 +13,8 @@
             "error",
             "always"
         ],
+        "no-invalid-this": 0,
+        "no-tabs": 0,
         "func-style": "error",
         "semi": 2,
         "no-undef": 2,

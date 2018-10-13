@@ -1,10 +1,10 @@
+/* globals $ */
 import { constants } from './constants.js';
-const eH = {
+const connectionsEventHandler = {
     openToDoHandler: function() {
-        $(document).on('opentodo', () =>{
+        $(constants.CALENDAR_CONTAINER_ID).on('opentodo', '#', () =>{
             $(constants.CALENDAR_MAIN_CONTAINER).hide();
             $(constants.TODO_CONTAINER).show();
-            //todo fill data
             }
         );
     },
@@ -17,4 +17,4 @@ const eH = {
         );
     },
 };
-export { eH };
+export { connectionsEventHandler };
