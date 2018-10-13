@@ -79,7 +79,7 @@ const viewDayInfo = function(event) {
     clicked = dateHelper
     .currentYear+'-'+dateHelper.currentMonth+'-'+event.target.id;
     console.log('show TODO data for '+clicked);
-    $('body').trigger('opentodo');
+    $('body').trigger('opentodo', clicked);
 };
 
 const fillDataToCalendar = () => {
