@@ -134,4 +134,5 @@ const updateCellFromToDo = () => {
 export {
     initializeCalendar,
     setCalendarButtonsEvents,
+    updateCellFromToDo,
  };

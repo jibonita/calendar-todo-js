@@ -1,6 +1,6 @@
 /* global $ */
 import { DatabaseProcesses } from './dbProcesses.js';
-const ceca = DatabaseProcesses.elementt;
+const ceca = DatabaseProcesses.currentToDo;
 
 
 // if (toDosDataInfo[0].toDo.length != 0) {

@@ -1,7 +1,7 @@
 import { toDosDataInfo } from './databse.js';
 let toDoElement;
 const DatabaseProcesses = {
-  elementt: toDoElement,
+  currentToDo: toDoElement,
 searchForDate: function(stringId) {
   toDoElement= toDosDataInfo.filter((x) => x.key === stringId)[0];
   if (toDoElement !== Object) {
