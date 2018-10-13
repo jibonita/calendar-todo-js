@@ -1,6 +1,7 @@
 import { toDosDataInfo } from './databse.js';
 let toDoElement;
-const gP = {
+const DatabaseProcesses = {
+  elementt: toDoElement,
 searchForDate: function(stringId) {
   toDoElement= toDosDataInfo.filter((x) => x.key === stringId)[0];
   if (toDoElement !== Object) {
@@ -28,4 +29,4 @@ pushToDate: function(str) {
       toDoElement.toDo[li].important = !toDoElement.toDo[li].important;
     },
 };
-export { gP };
+export { DatabaseProcesses };
