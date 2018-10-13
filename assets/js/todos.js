@@ -13,7 +13,6 @@ const findClickedElementIndex = (textToFind) => {
 	return ClickedElementIndex;
 };
 const todoDataVisualization = (todoObj) => {
-	console.log(todoObj);
 	if (todoObj.toDo.length !== 0) {
 		for (let i = 0; i < todoObj.toDo.length; i++) {
 			const isImportant = todoObj.toDo[i].important;
@@ -35,21 +34,18 @@ const todoDataVisualization = (todoObj) => {
 };
 let newToDoTaskText;
 
-const editToDoHandler = () => {
-	newToDoTaskText = $(this).text();
-	const input = `<input class='addToDo' 
+const editToDoHandler = (event) => {
+	newToDoTaskText = $(event.target).text();
+	const input = `<input class='addToDo' id='editInput'
 	type='text' value='${newToDoTaskText}'>`;
-	$(this).replaceWith(input);
+	$(event.target).replaceWith(input);
+	$('#editInput').focus();
 };
 const endOfEditHandler = function(event) {
 	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
 		const toDoNewText = $(this).val();
-		// DatabaseProcesses.currentToDo
-		// 	.toDo[findClickedElementIndex(curWords[0])]
-		// 	.value = toDoNewText;
 		DatabaseProcesses
 		.editToDo(findClickedElementIndex(newToDoTaskText), toDoNewText);
-		// curWords.pop();
 		$(this).val('');
 
 		$(this).replaceWith(
@@ -80,7 +76,6 @@ const addNewToDoHandler = (event) => {
 		'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
 		);
 		DatabaseProcesses.pushToDate(todoText);
-		console.log(toDoElement);
 	}
 };
 const toggleInputHandler = () => {
