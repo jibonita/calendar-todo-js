@@ -77,9 +77,9 @@ const displayNewMonth = (dir)=>{
 };
 const viewDayInfo = function(event) {
     clicked = dateHelper
-    .currentYear+'-'+dateHelper.currentMonth+'-'+event.target.id;
+    .currentYear+'-'+(dateHelper.currentMonth+ 1)+'-'+event.target.id.slice(1);
     console.log('show TODO data for '+clicked);
-    $('body').trigger('opentodo', clicked);
+    $(constants.CALENDAR_CONTAINER_ID).trigger('opentodo', clicked);
 };
 
 const fillDataToCalendar = () => {

@@ -3,6 +3,7 @@ const constants = {
   CALENDAR_CONTAINER_ID: '#cal-container',
   CALENDAR_MAIN_CONTAINER: '#main-calendar-container',
   TODO_CONTAINER: '#container',
+  ENTER_BUTTON_EVENT_CODE: 13,
 };
 
 export { constants };
