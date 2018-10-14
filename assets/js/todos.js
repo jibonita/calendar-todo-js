@@ -29,7 +29,7 @@ const todoDataVisualization = (todoObj) => {
 				);
 			} else {
 				$('#toDos').append(
-					'<li><span></span><span><ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
+					'<li><span></span><span class="trashcontainer"><ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
 					todoObj.toDo[i].value +
 					'<span><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 				);
@@ -56,7 +56,7 @@ const endOfEditHandler = function(event) {
 		$(this).replaceWith(
 			'<li><span></span><span class="trashcontainer"><ion-icon name="trash" class="trash"></ion-icon></span>' +
 			toDoNewText +
-			'<span><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
+			'<span class="starcontainer"><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 		);
 	}
 };
@@ -80,7 +80,7 @@ const addNewToDoHandler = (event) => {
 		$('ul').append(
 			'<li><span></span><span class="trashcontainer"><ion-icon name="trash" class="trash"></ion-icon></span>' +
 			todoText +
-			'<span><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
+			'<span class="starcontainer"><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 		);
 		DatabaseProcesses.pushToDate(todoText);
 	}
@@ -102,10 +102,10 @@ const toggleCalendar = () => {
 const setToDoEvents = function() {
 	$('ul').on('click', 'li', editToDoHandler);
 	$('ul').on('keypress', 'input', endOfEditHandler);
-	$('ul').on('click', 'trash.hydrated', deleteToDoTaskHandler);
+	$('ul').on('click', 'trashcontainer', deleteToDoTaskHandler);
 	$('input.addToDo').keypress(addNewToDoHandler);
 	$('#toggle-form').on('click', toggleInputHandler);
-	$('ul').on('click', '.star.hydrated', toggleImportancyHandler);
+	$('ul').on('click', '.starcontainer', toggleImportancyHandler);
 	$('#back-to-calendar').on('click', toggleCalendar);
 };
 export {
