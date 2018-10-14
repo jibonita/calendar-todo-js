@@ -56,9 +56,9 @@ const endOfEditHandler = function(event) {
 	}
 };
 const deleteToDoTaskHandler = (event) => {
-	//very ugly getting the element we need as $(this).parent() does not work
-	let toDoToDelete = $(event.target).parent().parent().parent();
-	let toDoToDeleteContent = toDoToDelete.text();
+	// very ugly getting the element we need as $(this).parent() does not work
+	const toDoToDelete = $(event.target).parent().parent().parent();
+	const toDoToDeleteContent = toDoToDelete.text();
 
 	const index = findClickedElementIndex(toDoToDeleteContent);
 	DatabaseProcesses.deleteToDo(index);
