@@ -25,7 +25,26 @@ const setMarginOfFirstDay = (date) => {
             + dateHelper.currentYear);
 };
 
+const hideUnusedCells = (days) => {
+    if (days > 28) {
+        $('#c29').show();
+    } else {
+        $('#c29').hide();
+    }
+    if (days > 29) {
+        $('#c30').show();
+    } else {
+        $('#c30').hide();
+    }
+    if (days > 30) {
+        $('#c31').show();
+    } else {
+        $('#c31').hide();
+    }
+};
+
 export {
     drawCalendarGrid,
     setMarginOfFirstDay,
+    hideUnusedCells,
 };

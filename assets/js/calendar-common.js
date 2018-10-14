@@ -75,7 +75,7 @@ const fillDataToCalendar = () => {
     for (let count = 0; count < allDaysInMonth; count++) {
         insertDayInfoInCell(y, m + 1, count + 1);
     }
-    hideUnusedCells(allDaysInMonth);
+    calendarRender.hideUnusedCells(allDaysInMonth);
 };
 
 const insertDayInfoInCell = (y, m, d) => {
@@ -90,23 +90,23 @@ const updateCellFromToDo = () => {
     fillInfoToCell(updatedDay, tasksForDay);
 };
 
-const hideUnusedCells = (days) => {
-    if (days > 28) {
-        $('#c29').show();
-    } else {
-        $('#c29').hide();
-    }
-    if (days > 29) {
-        $('#c30').show();
-    } else {
-        $('#c30').hide();
-    }
-    if (days > 30) {
-        $('#c31').show();
-    } else {
-        $('#c31').hide();
-    }
-};
+// const hideUnusedCells = (days) => {
+//     if (days > 28) {
+//         $('#c29').show();
+//     } else {
+//         $('#c29').hide();
+//     }
+//     if (days > 29) {
+//         $('#c30').show();
+//     } else {
+//         $('#c30').hide();
+//     }
+//     if (days > 30) {
+//         $('#c31').show();
+//     } else {
+//         $('#c31').hide();
+//     }
+// };
 
 const fillInfoToCell = (updatedDay, tasksForDay)=> {
     $(`#d${updatedDay}`).html(updatedDay);
