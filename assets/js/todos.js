@@ -1,6 +1,11 @@
 /* global $ */
-import { toDoElement, DatabaseProcesses } from './dbProcesses.js';
-import { constants } from './constants.js';
+import {
+	toDoElement,
+	DatabaseProcesses
+} from './dbProcesses.js';
+import {
+	constants
+} from './constants.js';
 
 const findClickedElementIndex = (textToFind) => {
 	let ClickedElementIndex = 0;
@@ -19,9 +24,9 @@ const todoDataVisualization = (todoObj) => {
 			const isImportant = todoObj.toDo[i].important;
 			if (isImportant) {
 				$('#toDos').append(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-			todoObj.toDo[i].value +
-			'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
+					'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+					todoObj.toDo[i].value +
+					'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
 				);
 			} else {
 				$('#toDos').append(
@@ -42,11 +47,11 @@ const editToDoHandler = (event) => {
 	$(event.target).replaceWith(input);
 	$('#editInput').focus();
 };
-const endOfEditHandler = function(event) {
+const endOfEditHandler = function (event) {
 	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
 		const toDoNewText = $(this).val();
 		DatabaseProcesses
-		.editToDo(findClickedElementIndex(newToDoTaskText), toDoNewText);
+			.editToDo(findClickedElementIndex(newToDoTaskText), toDoNewText);
 		$(this).val('');
 
 		$(this).replaceWith(
@@ -64,9 +69,9 @@ const deleteToDoTaskHandler = (event) => {
 	const index = findClickedElementIndex(toDoToDeleteContent);
 	DatabaseProcesses.deleteToDo(index);
 	toDoToDelete
-	.fadeOut(500, function() {
-		$(this).remove();
-	});
+		.fadeOut(500, function () {
+			$(this).remove();
+		});
 	event.stopPropagation();
 };
 const addNewToDoHandler = (event) => {
@@ -75,8 +80,8 @@ const addNewToDoHandler = (event) => {
 		$(event.target).val('');
 		$('ul').append(
 			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-		todoText +
-		'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+			todoText +
+			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
 		);
 		DatabaseProcesses.pushToDate(todoText);
 	}
@@ -93,10 +98,10 @@ const toggleImportancyHandler = (event) => {
 	event.stopPropagation();
 };
 const toggleCalendar = () => {
-	// TO DO: Add functionality to clean the UL of the existing tasks on close
+	$('ul').empty();
 	$(constants.TODO_CONTAINER).trigger('todoclosed');
 };
-const setToDoEvents = function() {
+const setToDoEvents = function () {
 	$('ul').on('click', 'li', editToDoHandler);
 	$('ul').on('keypress', 'input', endOfEditHandler);
 	$('ul').on('click', 'span.trash', deleteToDoTaskHandler);
@@ -105,5 +110,9 @@ const setToDoEvents = function() {
 	$('ul').on('click', '.star svg', toggleImportancyHandler);
 	$('#back-to-calendar').on('click', toggleCalendar);
 };
-export { todoDataVisualization };
-export { setToDoEvents };
+export {
+	todoDataVisualization
+};
+export {
+	setToDoEvents
+};

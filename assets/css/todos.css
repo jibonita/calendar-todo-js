@@ -28,7 +28,6 @@ h1 {
 
 li {
 	background: #E9F5CA;
-
 	line-height: 40px;
 	color: #666;
 	width: 100%;
@@ -89,12 +88,12 @@ input:focus {
 
 
 li>.star {
-    float: right;
-    width: 20px;
-    height: 20px;
-    padding-right: 5px;
-    display: inline;
-    padding-top: 10px;
+	float: right;
+	width: 20px;
+	height: 20px;
+	padding-right: 5px;
+	display: inline;
+	padding-top: 10px;
 }
 
 li> :last-child :hover {
@@ -132,14 +131,14 @@ li> :last-child :hover {
 #clock {
 	position: relative;
 	background: #f7f7f7;
-	
 	text-align: center;
 }
 
-.svg-inline--fa{
-		overflow: visible;
-		padding-bottom:10px;
+.svg-inline--fa.fa-star {
+	overflow: visible;
+	padding-bottom: 10px;
 }
+
 /* .clock {
 	position: absolute;
 	top: 50%;
