@@ -1,10 +1,10 @@
 /* global $ */
 import {
 	toDoElement,
-	DatabaseProcesses
+	DatabaseProcesses,
 } from './dbProcesses.js';
 import {
-	constants
+	constants,
 } from './constants.js';
 
 const findClickedElementIndex = (textToFind) => {
@@ -18,15 +18,14 @@ const findClickedElementIndex = (textToFind) => {
 	return ClickedElementIndex;
 };
 const todoDataVisualization = (todoObj) => {
-
 	if (todoObj.toDo.length !== 0) {
 		for (let i = 0; i < todoObj.toDo.length; i++) {
 			const isImportant = todoObj.toDo[i].important;
 			if (isImportant) {
 				$('#toDos').append(
-					'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-					todoObj.toDo[i].value +
-					'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
+			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+			todoObj.toDo[i].value +
+			'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
 				);
 			} else {
 				$('#toDos').append(
@@ -47,7 +46,7 @@ const editToDoHandler = (event) => {
 	$(event.target).replaceWith(input);
 	$('#editInput').focus();
 };
-const endOfEditHandler = function (event) {
+const endOfEditHandler = function(event) {
 	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
 		const toDoNewText = $(this).val();
 		DatabaseProcesses
@@ -69,7 +68,7 @@ const deleteToDoTaskHandler = (event) => {
 	const index = findClickedElementIndex(toDoToDeleteContent);
 	DatabaseProcesses.deleteToDo(index);
 	toDoToDelete
-		.fadeOut(500, function () {
+		.fadeOut(500, function() {
 			$(this).remove();
 		});
 	event.stopPropagation();
@@ -101,7 +100,7 @@ const toggleCalendar = () => {
 	$('ul').empty();
 	$(constants.TODO_CONTAINER).trigger('todoclosed');
 };
-const setToDoEvents = function () {
+const setToDoEvents = function() {
 	$('ul').on('click', 'li', editToDoHandler);
 	$('ul').on('keypress', 'input', endOfEditHandler);
 	$('ul').on('click', 'span.trash', deleteToDoTaskHandler);
@@ -111,8 +110,8 @@ const setToDoEvents = function () {
 	$('#back-to-calendar').on('click', toggleCalendar);
 };
 export {
-	todoDataVisualization
+	todoDataVisualization,
 };
 export {
-	setToDoEvents
+	setToDoEvents,
 };
