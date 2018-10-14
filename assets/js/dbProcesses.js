@@ -29,5 +29,8 @@ const DatabaseProcesses = {
     toDoElement.toDo[indexOfTask].important = !toDoElement
       .toDo[indexOfTask].important;
   },
+  getNumberOfTasks: function() {
+    return toDoElement.toDo.length;
+  },
 };
 export { toDoElement, DatabaseProcesses };
