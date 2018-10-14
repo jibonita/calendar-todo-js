@@ -28,7 +28,7 @@ h1 {
 
 li {
 	background: #E9F5CA;
-	height: 40px;
+
 	line-height: 40px;
 	color: #666;
 	width: 100%;
@@ -48,6 +48,7 @@ li> :first-child {
 	display: inline-block;
 	transition: 0.2s linear;
 	opacity: 0;
+	display: inline-table;
 }
 
 li:hover span.trash {
@@ -71,7 +72,7 @@ input:focus {
 	outline: none;
 }
 
-#container {
+#todo-container {
 	width: 360px;
 	margin: 100px auto;
 	/* background: #f7f7f7; */
