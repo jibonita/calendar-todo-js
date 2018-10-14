@@ -92,7 +92,7 @@ const toggleImportancyHandler = (event) => {
 	event.stopPropagation();
 };
 const toggleCalendar = () => {
-	$('constants.TODO_CONTAINER').trigger('todoclosed');
+	$(constants.TODO_CONTAINER).trigger('todoclosed');
 };
 const setToDoEvents = function() {
 	$('ul').on('click', 'li', editToDoHandler);
