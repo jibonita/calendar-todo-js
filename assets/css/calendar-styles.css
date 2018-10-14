@@ -17,6 +17,7 @@ body{
 #cal-container .cell{
     box-sizing: border-box;
     border: 1px solid green;
+    position: relative;
 }
 .has-data{
     background: url("./../img/actions-view-calendar-day-icon.png");
