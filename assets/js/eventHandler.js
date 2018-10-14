@@ -14,10 +14,10 @@ const connectionsEventHandler = {
         );
     },
     openCalendarHandler: function() {
-        $('body').on('todoclosed', () =>{
-            updateCellFromToDo();
-            $(constants.TODO_CONTAINER).hide();
+        $(constants.TODO_CONTAINER).on('todoclosed', () =>{
             $(constants.CALENDAR_MAIN_CONTAINER).show();
+            $(constants.TODO_CONTAINER).hide();
+            updateCellFromToDo();
             }
         );
     },
