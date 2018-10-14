@@ -1,29 +1,28 @@
 /* globals $ */
 import * as dateHelper from './date-helper.js';
 import { constants } from './constants.js';
-import { toDoElement, DatabaseProcesses } from './dbProcesses.js';
+import { DatabaseProcesses } from './dbProcesses.js';
 // import { calendarRender } from 'calendar-render.js';
 
-let calendarContainer;
 let clicked;
 
 const initializeCalendar = (id) => {
     const today = new Date();
     dateHelper.setTodaysMonthYear(today);
 
-    // calendarRender.drawCalendarGrid(id);
-    calendarContainer = $(id);
+    // calendarRender.drawCalendarGrid(id, viewDayInfo);
+    let calendarContainer = $(id);
     for (let count = 0; count < 31; count++) {
-        const element = $(`<div class="cell" ></div>`);
-        const insideElement = $(`<div class="cell-content" id="d${count + 1}">${count + 1}</div>`);
+        const element = $(`<div class="cell" id="c${count + 1}"></div>`);
+        const insideElement = $(`<div class="cell-content" id="d${count + 1}">
+                                ${count + 1}</div>`);
         element.append(insideElement);
         insideElement.click(viewDayInfo);
         calendarContainer.append(element);
-    } 
+    }
+    setMarginOfFirstDay(today);
 
     fillDataToCalendar();
-
-    setMarginOfFirstDay(today);
 };
 
 const setCalendarButtonsEvents = () => {
@@ -41,10 +40,10 @@ const setMarginOfFirstDay = (date) => {
     if (dayOfWeekOf1st === 0) dayOfWeekOf1st = 7;
 
     $('.cell:first-child')
-        .css('margin-left', (dayOfWeekOf1st - 1) * constants.CELL_PERCENTAGE_WIDTH + '%');
+        .attr('class', `cell margin-${(dayOfWeekOf1st - 1)}-cell`);
     $('#month-name')
-        .text(dateHelper
-            .getMonthName(dateHelper.currentMonth) + ' ' + dateHelper.currentYear);
+        .text(dateHelper.getMonthName(dateHelper.currentMonth) + ' '
+            + dateHelper.currentYear);
 };
 
 const displayNewMonth = (dir) => {
@@ -69,8 +68,9 @@ const displayNewMonth = (dir) => {
         .currentYear, dateHelper.currentMonth, 1));
 };
 const viewDayInfo = (event) => {
-    clicked = dateHelper
-        .currentYear + '-' + (dateHelper.currentMonth + 1) + '-' + event.delegateTarget.id.slice(1);
+    clicked = dateHelper.currentYear + '-'
+        + (dateHelper.currentMonth + 1) +'-'
+        + event.delegateTarget.id.slice(1);
     //  console.log('show TODO data for '+clicked);
     $(constants.CALENDAR_CONTAINER_ID).trigger('opentodo', clicked);
 };
@@ -100,23 +100,23 @@ const updateCellFromToDo = () => {
 
 const hideUnusedCells = (days) => {
     if (days > 28) {
-        $('#d29').show();
+        $('#c29').show();
     } else {
-        $('#d29').hide();
+        $('#c29').hide();
     }
     if (days > 29) {
-        $('#d30').show();
+        $('#c30').show();
     } else {
-        $('#d30').hide();
+        $('#c30').hide();
     }
     if (days > 30) {
-        $('#d31').show();
+        $('#c31').show();
     } else {
-        $('#d31').hide();
+        $('#c31').hide();
     }
 };
 
-const fillInfoToCell = (updatedDay, tasksForDay)=>  {
+const fillInfoToCell = (updatedDay, tasksForDay)=> {
     $(`#d${updatedDay}`).html(updatedDay);
     if (tasksForDay !== 0) {
         const tasksHTML = `<div><button type="button" class="btn btn-info btn-primary btn-sm">

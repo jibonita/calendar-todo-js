@@ -1,45 +1,50 @@
+:root {
+    --cell-width: 13%;
+    --cell-margin-right: 1%;
+}
+
+body{
+    background:url("./../img/background.jpg");
+    background-size: contain;
+
+}
 #main-calendar-container{
     width: 100%;
     margin-top: 30px;
     padding-left: 3%;
-    Qheight: 200px;
-    Qborder:1px solid red;
-}
-body{
-    background:url("./../img/background.jpg");
-    background-size: inherit;
 }
 #week-days .weekday, 
 #cal-container .cell{
     display: inline-block;
-    width: 13%;
+    margin-right: var(--cell-margin-right);
+    width: var(--cell-width);
     overflow:hidden;
+
 }
 #cal-container .cell{
-    margin-right: 1%;
     padding: 1%;
     box-sizing: border-box;
     position: relative;
-    background-color: white;
-    opacity: 0.7;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.7); 
+   
 
     /* hack instead of border */
     box-shadow: 
-    1px 0 0 0 green, 
-    0 1px 0 0  green , 
-    1px 1px 0 0 green ,   /* Just to fix the corner */
-    1px 0 0 0 green inset, 
-    0 1px 0 0 green inset;
+    1px 0 0 0 #91928A, 
+    0 1px 0 0  #91928A , 
+    1px 1px 0 0 #91928A ,   
+     1px 0 0 0 #91928A inset, 
+    0 1px 0 0 #91928A inset; 
 }
-.has-data{
-    background: url("./../img/actions-view-calendar-day-icon.png");
-    background-size: contain;
+#cal-container .cell:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.9); 
 }
-
 .cell-content{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 98%;
 
 }    
 
@@ -49,11 +54,38 @@ body{
     padding-bottom: 100%; 
   }
 
- 
 
-  #month-name{
-      margin: 10px 30px;
-  }
+.margin-1-cell{
+    margin-left: calc(var(--cell-width) + var(--cell-margin-right)); /* 13 width + 1 margin-right */
+}
+.margin-2-cell{
+    margin-left: calc(2 * (var(--cell-width) + var(--cell-margin-right)));
+}
+.margin-3-cell{
+    margin-left: calc(3 * (var(--cell-width) + var(--cell-margin-right)));
+}
+.margin-4-cell{
+    margin-left: calc(4 * (var(--cell-width) + var(--cell-margin-right)));
+}
+.margin-5-cell{
+    margin-left: calc(5 * (var(--cell-width) + var(--cell-margin-right)));
+}
+.margin-6-cell{
+    margin-left: calc(6 * (var(--cell-width) + var(--cell-margin-right)));
+}
+
+#week-days{
+    margin-top: 20px
+}
+#week-days .weekday{
+      text-align: center;
+} 
+
+#month-name{
+    margin: 10px 30px;
+    color: white;
+    font-weight: bold;
+}
 
 .important{
     color: red;
