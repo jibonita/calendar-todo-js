@@ -25,19 +25,6 @@ const setCalendarButtonsEvents = () => {
     });
 };
 
-// function moved to calendar-render module
-// const setMarginOfFirstDay = (date) => {
-//     let dayOfWeekOf1st = dateHelper.getThe1stOfMonth(date);
-//     dateHelper.setCurrentMonth(date.getMonth());
-//     if (dayOfWeekOf1st === 0) dayOfWeekOf1st = 7;
-
-//     $('.cell:first-child')
-//         .attr('class', `cell margin-${(dayOfWeekOf1st - 1)}-cell`);
-//     $('#month-name')
-//         .text(dateHelper.getMonthName(dateHelper.currentMonth) + ' '
-//             + dateHelper.currentYear);
-// };
-
 const displayNewMonth = (dir) => {
     const updateCurrentMY = () => {
         const y = dateHelper.currentYear;
@@ -59,6 +46,7 @@ const displayNewMonth = (dir) => {
     calendarRender.setMarginOfFirstDay(new Date(dateHelper
         .currentYear, dateHelper.currentMonth, 1));
 };
+
 const viewDayInfo = (event) => {
     clicked = dateHelper.currentYear + '-'
         + (dateHelper.currentMonth + 1) +'-'
@@ -89,24 +77,6 @@ const updateCellFromToDo = () => {
     const tasksForDay = DatabaseProcesses.getNumberOfTasks(clicked);
     fillInfoToCell(updatedDay, tasksForDay);
 };
-
-// const hideUnusedCells = (days) => {
-//     if (days > 28) {
-//         $('#c29').show();
-//     } else {
-//         $('#c29').hide();
-//     }
-//     if (days > 29) {
-//         $('#c30').show();
-//     } else {
-//         $('#c30').hide();
-//     }
-//     if (days > 30) {
-//         $('#c31').show();
-//     } else {
-//         $('#c31').hide();
-//     }
-// };
 
 const fillInfoToCell = (updatedDay, tasksForDay)=> {
     $(`#d${updatedDay}`).html(updatedDay);
