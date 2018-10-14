@@ -5,5 +5,4 @@ const constants = {
   TODO_CONTAINER: '#todo-container',
   ENTER_BUTTON_EVENT_CODE: 13,
 };
-
 export { constants };
