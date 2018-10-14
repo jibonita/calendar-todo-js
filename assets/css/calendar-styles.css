@@ -4,6 +4,10 @@
     Qheight: 200px;
     Qborder:1px solid red;
 }
+body{
+    background:url("./../img/background.jpg");
+    background-size: auto;
+}
 #week-days .weekday, 
 #cal-container .cell{
     display: inline-block;
