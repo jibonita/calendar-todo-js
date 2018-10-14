@@ -1,8 +1,8 @@
 /* globals $ */
 import * as dateHelper from './date-helper.js';
 import { constants } from './constants.js';
+import * as calendarRender from './calendar-render.js';
 import { DatabaseProcesses } from './dbProcesses.js';
-// import { calendarRender } from 'calendar-render.js';
 
 let clicked;
 
@@ -10,17 +10,8 @@ const initializeCalendar = (id) => {
     const today = new Date();
     dateHelper.setTodaysMonthYear(today);
 
-    // calendarRender.drawCalendarGrid(id, viewDayInfo);
-    let calendarContainer = $(id);
-    for (let count = 0; count < 31; count++) {
-        const element = $(`<div class="cell" id="c${count + 1}"></div>`);
-        const insideElement = $(`<div class="cell-content" id="d${count + 1}">
-                                ${count + 1}</div>`);
-        element.append(insideElement);
-        insideElement.click(viewDayInfo);
-        calendarContainer.append(element);
-    }
-    setMarginOfFirstDay(today);
+    calendarRender.drawCalendarGrid(id, viewDayInfo);
+    calendarRender.setMarginOfFirstDay(today);
 
     fillDataToCalendar();
 };
@@ -34,17 +25,18 @@ const setCalendarButtonsEvents = () => {
     });
 };
 
-const setMarginOfFirstDay = (date) => {
-    let dayOfWeekOf1st = dateHelper.getThe1stOfMonth(date);
-    dateHelper.setCurrentMonth(date.getMonth());
-    if (dayOfWeekOf1st === 0) dayOfWeekOf1st = 7;
+// function moved to calendar-render module
+// const setMarginOfFirstDay = (date) => {
+//     let dayOfWeekOf1st = dateHelper.getThe1stOfMonth(date);
+//     dateHelper.setCurrentMonth(date.getMonth());
+//     if (dayOfWeekOf1st === 0) dayOfWeekOf1st = 7;
 
-    $('.cell:first-child')
-        .attr('class', `cell margin-${(dayOfWeekOf1st - 1)}-cell`);
-    $('#month-name')
-        .text(dateHelper.getMonthName(dateHelper.currentMonth) + ' '
-            + dateHelper.currentYear);
-};
+//     $('.cell:first-child')
+//         .attr('class', `cell margin-${(dayOfWeekOf1st - 1)}-cell`);
+//     $('#month-name')
+//         .text(dateHelper.getMonthName(dateHelper.currentMonth) + ' '
+//             + dateHelper.currentYear);
+// };
 
 const displayNewMonth = (dir) => {
     const updateCurrentMY = () => {
@@ -64,7 +56,7 @@ const displayNewMonth = (dir) => {
     };
     updateCurrentMY(dir);
     fillDataToCalendar();
-    setMarginOfFirstDay(new Date(dateHelper
+    calendarRender.setMarginOfFirstDay(new Date(dateHelper
         .currentYear, dateHelper.currentMonth, 1));
 };
 const viewDayInfo = (event) => {
