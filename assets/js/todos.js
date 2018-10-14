@@ -87,14 +87,14 @@ const addNewToDoHandler = (event) => {
 	}
 };
 const toggleInputHandler = () => {
-	$('input.addToDo').fadeToggle();
+	$('input.addToDo').fadeToggle(300, () => $(this).toggleClass('.hide'));
 };
 const toggleImportancyHandler = (event) => {
 	const importancyStarSpan = $(event.target).parent();
 	console.log(importancyStarSpan);
 	const index = findClickedElementIndex(importancyStarSpan.parent().text());
 	DatabaseProcesses.editImportance(index);
-	$('svg').toggleClass('important');
+	$('svg-inline--fa.fa-star').toggleClass('important');
 	event.stopPropagation();
 };
 const toggleCalendar = () => {
@@ -107,7 +107,7 @@ const setToDoEvents = function () {
 	$('ul').on('click', 'span.trash', deleteToDoTaskHandler);
 	$('input.addToDo').keypress(addNewToDoHandler);
 	$('#toggle-form').on('click', toggleInputHandler);
-	$('ul').on('click', '.star svg', toggleImportancyHandler);
+	$('ul').on('click', '.star', toggleImportancyHandler);
 	$('#back-to-calendar').on('click', toggleCalendar);
 };
 export {
