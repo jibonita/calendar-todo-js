@@ -86,16 +86,6 @@ input:focus {
 	text-decoration: line-through;
 }
 
-
-li>.star {
-	float: right;
-	width: 20px;
-	height: 20px;
-	padding-right: 5px;
-	display: inline;
-	padding-top: 10px;
-}
-
 li> :last-child :hover {
 
 	color: #e74c3c;
@@ -134,9 +124,14 @@ li> :last-child :hover {
 	text-align: center;
 }
 
-.svg-inline--fa.fa-star {
-	overflow: visible;
-	padding-bottom: 10px;
+.trash.hydrated{
+	color:blue;
+}
+
+.star.hydrated{
+	color:orange;
+	width: 20px;
+	height: 20px;
 }
 
 /* .clock {

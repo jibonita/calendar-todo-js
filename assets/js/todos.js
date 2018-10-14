@@ -9,7 +9,7 @@ import {
 
 const findClickedElementIndex = (textToFind) => {
 	let ClickedElementIndex = 0;
-	//console.log(toDoElement.toDo, textToFind);
+	// console.log(toDoElement.toDo, textToFind);
 	toDoElement.toDo.filter((element, i) => {
 		if (element.value === textToFind) {
 			ClickedElementIndex = i;
@@ -23,15 +23,15 @@ const todoDataVisualization = (todoObj) => {
 			const isImportant = todoObj.toDo[i].important;
 			if (isImportant) {
 				$('#toDos').append(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+			'<li><span><ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
 			todoObj.toDo[i].value +
-			'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
+			'<span><ion-icon name="star" role="img" class="star"></ion-icon></span></li>'
 				);
 			} else {
 				$('#toDos').append(
-					'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+					'<li><span></span><span><ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
 					todoObj.toDo[i].value +
-					'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+					'<span><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 				);
 			}
 		}
@@ -54,9 +54,9 @@ const endOfEditHandler = function(event) {
 		$(this).val('');
 
 		$(this).replaceWith(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+			'<li><span></span><span class="trashcontainer"><ion-icon name="trash" class="trash"></ion-icon></span>' +
 			toDoNewText +
-			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+			'<span><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 		);
 	}
 };
@@ -78,9 +78,9 @@ const addNewToDoHandler = (event) => {
 		const todoText = $(event.target).val();
 		$(event.target).val('');
 		$('ul').append(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+			'<li><span></span><span class="trashcontainer"><ion-icon name="trash" class="trash"></ion-icon></span>' +
 			todoText +
-			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+			'<span><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 		);
 		DatabaseProcesses.pushToDate(todoText);
 	}
@@ -102,10 +102,10 @@ const toggleCalendar = () => {
 const setToDoEvents = function() {
 	$('ul').on('click', 'li', editToDoHandler);
 	$('ul').on('keypress', 'input', endOfEditHandler);
-	$('ul').on('click', 'span.trash', deleteToDoTaskHandler);
+	$('ul').on('click', 'trash.hydrated', deleteToDoTaskHandler);
 	$('input.addToDo').keypress(addNewToDoHandler);
 	$('#toggle-form').on('click', toggleInputHandler);
-	$('ul').on('click', '.svg-inline--fa.fa-star', toggleImportancyHandler);
+	$('ul').on('click', '.star.hydrated', toggleImportancyHandler);
 	$('#back-to-calendar').on('click', toggleCalendar);
 };
 export {

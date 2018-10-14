@@ -7,7 +7,7 @@
 }
 body{
     background:url("./../img/background.jpg");
-    background-size: contain;
+    background-size: inherit;
 }
 #week-days .weekday, 
 #cal-container .cell{
@@ -57,8 +57,4 @@ body{
 
 .important{
     color: red;
-}
-
-.star{
-    color:black;
 }
