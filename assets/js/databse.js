@@ -44,6 +44,28 @@ const toDosDataInfo = [{
             value: 'chill',
             important: false,
         },
+        {
+            value: 'chill out',
+            important: false,
+        },
+        {
+            value: 'burn out',
+            important: false,
+        },
     ],
-}];
+},
+{
+    key: '2018-11-25',
+    toDo: [{
+            value: 'Subscribe for the Uni Year',
+            important: false,
+        },
+        {
+            value: 'Ask for individual protocol',
+            important: false,
+        },
+        
+    ],
+},
+];
 export { toDosDataInfo };

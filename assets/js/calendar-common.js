@@ -2,28 +2,28 @@
 import * as dateHelper from './date-helper.js';
 import { constants } from './constants.js';
 import { toDoElement, DatabaseProcesses } from './dbProcesses.js';
+// import { calendarRender } from 'calendar-render.js';
 
 let calendarContainer;
 let clicked;
 
-const initializeCalendar = function (id) {
+const initializeCalendar = (id) => {
     const today = new Date();
     dateHelper.setTodaysMonthYear(today);
 
+    // calendarRender.drawCalendarGrid(id);
     calendarContainer = $(id);
     for (let count = 0; count < 31; count++) {
         const element = $(`<div class="cell" ></div>`);
-        element
-            .append(`<div class="cell-content" id="d${count + 1}">${count + 1}</div>`);
-        element.click(viewDayInfo);
+        const insideElement = $(`<div class="cell-content" id="d${count + 1}">${count + 1}</div>`);
+        element.append(insideElement);
+        insideElement.click(viewDayInfo);
         calendarContainer.append(element);
-    }
+    } 
 
     fillDataToCalendar();
 
     setMarginOfFirstDay(today);
-
-    // $(calendarContainer,'dataUpdate');
 };
 
 const setCalendarButtonsEvents = () => {
@@ -32,13 +32,6 @@ const setCalendarButtonsEvents = () => {
     });
     $('#next').click(() => {
         displayNewMonth(1);
-    });
-    $('#triggerclose').click(() => {
-        $(constants.CALENDAR_CONTAINER_ID).trigger('todoclosed');
-    });
-
-    $(constants.CALENDAR_CONTAINER_ID).on('todoclosed', () => {
-        updateCellFromToDo(clicked);
     });
 };
 
@@ -75,11 +68,10 @@ const displayNewMonth = (dir) => {
     setMarginOfFirstDay(new Date(dateHelper
         .currentYear, dateHelper.currentMonth, 1));
 };
-const viewDayInfo = function (event) {
-
+const viewDayInfo = (event) => {
     clicked = dateHelper
-        .currentYear + '-' + (dateHelper.currentMonth + 1) + '-' + event.target.id.slice(1);
-    // console.log('show TODO data for '+clicked);
+        .currentYear + '-' + (dateHelper.currentMonth + 1) + '-' + event.delegateTarget.id.slice(1);
+      console.log('show TODO data for '+clicked);
     $(constants.CALENDAR_CONTAINER_ID).trigger('opentodo', clicked);
 };
 
@@ -89,16 +81,21 @@ const fillDataToCalendar = () => {
     const allDaysInMonth = dateHelper.getDaysInMonth(dateHelper
         .currentMonth, dateHelper.currentYear);
     for (let count = 0; count < allDaysInMonth; count++) {
-        const data = insertDayInfoInCell(y, m, count + 1);
-        // TODO: info from DB here
-        const cID = `#d${count + 1}`;
-        $(cID).text(data);
+        insertDayInfoInCell(y, m + 1, count + 1);
     }
     hideUnusedCells(allDaysInMonth);
 };
 
 const insertDayInfoInCell = (y, m, d) => {
-    return d;
+    const date = y+'-'+m+'-'+d;
+    const tasksForDay = DatabaseProcesses.getNumberOfTasks(date);
+    fillInfoToCell(d, tasksForDay);
+};
+
+const updateCellFromToDo = () => {
+    const updatedDay = clicked.split('-')[2]; // date format yyyy-m-d
+    const tasksForDay = DatabaseProcesses.getNumberOfTasks(clicked);
+    fillInfoToCell(updatedDay, tasksForDay);
 };
 
 const hideUnusedCells = (days) => {
@@ -119,15 +116,13 @@ const hideUnusedCells = (days) => {
     }
 };
 
-const updateCellFromToDo = () => {
-    console.log('updated');
-    const tasksForDay = DatabaseProcesses.getNumberOfTasks();
-    const updatedDay = clicked.split('-')[2]; // date format yyyy-m-d
-
+const fillInfoToCell = (updatedDay, tasksForDay)=>  {
     $(`#d${updatedDay}`).html(updatedDay);
     if (tasksForDay !== 0) {
-        $(`#d${updatedDay}`)
-        .append($(`<div class="tasks-per-day">Tasks: ${tasksForDay}</div>`));
+        const tasksHTML = `<div><button type="button" class="btn btn-info">
+        Tasks: <span class="badge badge-light">${tasksForDay}</span>
+        </button></div>`;
+        $(`#d${updatedDay}`).append($(tasksHTML));
     }
 };
 
