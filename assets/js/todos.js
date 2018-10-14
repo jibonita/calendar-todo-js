@@ -13,6 +13,7 @@ const findClickedElementIndex = (textToFind) => {
 	return ClickedElementIndex;
 };
 const todoDataVisualization = (todoObj) => {
+
 	if (todoObj.toDo.length !== 0) {
 		for (let i = 0; i < todoObj.toDo.length; i++) {
 			const isImportant = todoObj.toDo[i].important;
@@ -92,7 +93,8 @@ const toggleImportancyHandler = (event) => {
 	event.stopPropagation();
 };
 const toggleCalendar = () => {
-	$(constants.TODO_CONTAINER).trigger('todoclosed', toDoElement.key);
+	// TO DO: Add functionality to clean the UL of the existing tasks on close
+	$(constants.TODO_CONTAINER).trigger('todoclosed');
 };
 const setToDoEvents = function() {
 	$('ul').on('click', 'li', editToDoHandler);
