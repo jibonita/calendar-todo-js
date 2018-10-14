@@ -1,24 +1,35 @@
 #main-calendar-container{
-    width: 60%;
+    width: 100%;
     margin-top: 30px;
+    padding-left: 3%;
     Qheight: 200px;
     Qborder:1px solid red;
 }
 body{
     background:url("./../img/background.jpg");
-    background-size: auto;
+    background-size: contain;
 }
 #week-days .weekday, 
 #cal-container .cell{
     display: inline-block;
-    width: 14%;
+    width: 13%;
     overflow:hidden;
 }
 #cal-container .cell{
+    margin-right: 1%;
+    padding: 1%;
     box-sizing: border-box;
-    border: 1px solid green;
     position: relative;
+    background-color: white;
+    opacity: 0.7;
 
+    /* hack instead of border */
+    box-shadow: 
+    1px 0 0 0 green, 
+    0 1px 0 0  green , 
+    1px 1px 0 0 green ,   /* Just to fix the corner */
+    1px 0 0 0 green inset, 
+    0 1px 0 0 green inset;
 }
 .has-data{
     background: url("./../img/actions-view-calendar-day-icon.png");

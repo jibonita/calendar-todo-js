@@ -71,7 +71,7 @@ const displayNewMonth = (dir) => {
 const viewDayInfo = (event) => {
     clicked = dateHelper
         .currentYear + '-' + (dateHelper.currentMonth + 1) + '-' + event.delegateTarget.id.slice(1);
-      console.log('show TODO data for '+clicked);
+    //  console.log('show TODO data for '+clicked);
     $(constants.CALENDAR_CONTAINER_ID).trigger('opentodo', clicked);
 };
 
@@ -119,8 +119,8 @@ const hideUnusedCells = (days) => {
 const fillInfoToCell = (updatedDay, tasksForDay)=>  {
     $(`#d${updatedDay}`).html(updatedDay);
     if (tasksForDay !== 0) {
-        const tasksHTML = `<div><button type="button" class="btn btn-info">
-        Tasks: <span class="badge badge-light">${tasksForDay}</span>
+        const tasksHTML = `<div><button type="button" class="btn btn-info btn-primary btn-sm">
+        <span class="hidden-xs">Tasks: </span><span class="badge badge-light visible-xs-block">${tasksForDay}</span>
         </button></div>`;
         $(`#d${updatedDay}`).append($(tasksHTML));
     }
