@@ -29,8 +29,9 @@ const DatabaseProcesses = {
     toDoElement.toDo[indexOfTask].important = !toDoElement
       .toDo[indexOfTask].important;
   },
-  getNumberOfTasks: function() {
-    return toDoElement.toDo.length;
+  getNumberOfTasks: function(stringId) {
+    const date = this.searchForDate(stringId);
+    return date.toDo.length;
   },
 };
 export { toDoElement, DatabaseProcesses };
