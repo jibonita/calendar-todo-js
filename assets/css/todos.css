@@ -66,7 +66,7 @@ input:focus {
 }
 
 #todo-container {
-	width: 360px;
+	width: 460px;
 	margin: 100px auto;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	display: none;
@@ -86,7 +86,6 @@ li>.star {
 	height: 20px;
 	padding-right: 15px;
 	display: inline;
-	/* padding-top: 10px; */
 }
 
 li> :last-child {
@@ -98,8 +97,6 @@ li> :last-child {
 li> :last-child :hover {
 	color: #e74c3c;
 }
-
-
 
 #back-to-calendar {
 	text-align: center;
@@ -123,11 +120,6 @@ li> :last-child :hover {
 	text-align: center;
 	border: none;
 }
-
-/* .svg-inline--fa.fa-star {
-	overflow: visible;
-	padding-bottom: 15px;
-} */
 
 .hide {
 	display: none;
