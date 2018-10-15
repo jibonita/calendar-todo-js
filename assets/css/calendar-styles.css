@@ -4,13 +4,13 @@
 }
 
 body {
-    background: url("./../img/background.jpg");
+    background: url("./../img/backGroundOffice.jpg") no-repeat;
     background-size: auto;
-
 }
 
 #main-calendar-container {
-    width: 100%;
+    width: 70%;
+    margin: 0 auto;
     margin-top: 30px;
     padding-left: 3%;
 }
@@ -50,7 +50,7 @@ body {
     position: absolute;
     width: 98%;
     height: 98%;
-
+    box-shadow: 2;
 }
 
 #cal-container .cell:after {
@@ -86,15 +86,68 @@ body {
 }
 
 #week-days {
-    margin-top: 20px
+    margin-top: 20px;
+    font-size: 0
 }
 
-#week-days .weekday {
+#week-days .btn btn-success {
     text-align: center;
+}
+
+#week-days .btn btn-success:focus {
+    outline: none;
 }
 
 #month-name {
     margin: 10px 30px;
     color: white;
     font-weight: bold;
+}
+
+.view-md,
+.view-sm {
+    display: none;
+}
+
+@media only screen and (max-width: 1170px) {
+
+    .view-lg,
+    .view-sm {
+        display: none;
+    }
+
+    .view-md {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .hidden-xs {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .btn-sm {
+        padding: 0 4px 2px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #cal-container .cell.cell-with-tasks {
+        background-color: #138496;
+    }
+
+    #cal-container .cell.cell-with-tasks button {
+        display: none;
+    }
+
+    .view-lg,
+    .view-md {
+        display: none;
+    }
+
+    .view-sm {
+        display: block;
+    }
 }

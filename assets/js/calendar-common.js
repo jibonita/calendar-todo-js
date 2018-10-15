@@ -81,10 +81,16 @@ const updateCellFromToDo = () => {
 const fillInfoToCell = (updatedDay, tasksForDay)=> {
     $(`#d${updatedDay}`).html(updatedDay);
     if (tasksForDay !== 0) {
-        const tasksHTML = `<div><button type="button" class="btn btn-info btn-primary btn-sm">
-        <span class="hidden-xs">Tasks: </span><span class="badge badge-light visible-xs-block">${tasksForDay}</span>
+        const tasksHTML = `<div><button type="button" 
+        class="btn btn-info btn-primary btn-sm">
+        <span class="hidden-xs">Tasks: </span><span 
+        class="badge badge-light visible-xs-block">${tasksForDay}</span>
         </button></div>`;
         $(`#d${updatedDay}`).append($(tasksHTML));
+
+        $(`#c${updatedDay}`).addClass('cell-with-tasks');
+    } else {
+        $(`#c${updatedDay}`).removeClass('cell-with-tasks');
     }
 };
 
