@@ -67,5 +67,49 @@ const toDosDataInfo = [{
         
     ],
 },
+{
+    key: '2018-10-25',
+    toDo: [{
+            value: '25. buy tobacco',
+            important: false,
+        },
+        {
+            value: 'make shisha',
+            important: true,
+        },
+        {
+            value: 'chill',
+            important: false,
+        },
+        {
+            value: 'JS Advanced Team Work',
+            important: true,
+        },
+        {
+            value: 'chill out',
+            important: false,
+        },
+        {
+            value: 'burn out',
+            important: false,
+        },
+        {
+            value: 'lorem aspum',
+            important: false,
+        },
+        {
+            value: 'lorelli',
+            important: false,
+        },
+        {
+            value: 'Tula Baby Carrier buy Toddler size',
+            important: true,
+        },
+        {
+            value: 'Integra size 2',
+            important: false,
+        },
+    ],
+},
 ];
 export { toDosDataInfo };
