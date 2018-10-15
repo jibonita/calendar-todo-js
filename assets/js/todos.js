@@ -41,7 +41,6 @@ const editToDoHandler = (event) => {
 		$('#editInput').replaceWith(
 			getTaskHTMLCode(newToDoTaskText, toDoElement.toDo[index].important));
 	});
-
 };
 
 const endOfEditHandler = (event) => {
