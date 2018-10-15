@@ -15,7 +15,8 @@ const getDaysInMonth = (m, y) => {
     //* * month in return expression is 1-based,
     // but the func received it 0-based
     m = m + 1;
-    const allDays = m === 2 ? y & 3 || !(y % 25) && y & 15 ? 28 : 29 : 30 + (m + (m >> 3) & 1);
+    const allDays = m === 2 ? y & 3 || !(y % 25)
+    && y & 15 ? 28 : 29 : 30 + (m + (m >> 3) & 1);
     daysInMonth[m - 1] = allDays;
     return allDays;
 };

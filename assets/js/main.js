@@ -8,9 +8,7 @@ import { setToDoEvents } from './todos.js';
 $( document ).ready(function() {
     calendar.initializeCalendar(constants.CALENDAR_CONTAINER_ID);
     calendar.setCalendarButtonsEvents();
-    
     setToDoEvents();
-
     connectionsEventHandler.openToDoHandler();
     connectionsEventHandler.openCalendarHandler();
 });

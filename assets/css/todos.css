@@ -129,7 +129,7 @@ li> :last-child :hover {
 }
 
 .star.hydrated{
-	color:orange;
+	color:red;
 	width: 20px;
 	height: 20px;
 }
