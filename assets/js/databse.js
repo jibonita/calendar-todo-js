@@ -6,7 +6,7 @@ const toDosDataInfo = [{
         },
         {
             value: 'make shisha',
-            important: false,
+            important: true,
         },
         {
             value: 'chill',
