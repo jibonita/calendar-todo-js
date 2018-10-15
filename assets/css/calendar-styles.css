@@ -4,7 +4,7 @@
 }
 
 body{
-    background:url("./../img/backGroundOffice.jpg");
+    background:url("./../img/backGroundOffice.jpg") no-repeat;
     background-size: auto;
 }
 #main-calendar-container{
@@ -45,6 +45,7 @@ body{
     position: absolute;
     width: 98%;
     height: 98%;
+    box-shadow: 2;
 }    
 
 #cal-container .cell:after {
@@ -79,6 +80,7 @@ body{
 #week-days .btn btn-success{
       text-align: center;
 } 
+#week-days .btn btn-success:focus { outline: none; }
 #month-name{
     margin: 10px 30px;
     color: white;
