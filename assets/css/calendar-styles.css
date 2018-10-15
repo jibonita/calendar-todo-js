@@ -88,3 +88,24 @@ body{
 .important{
     color: red;
 }
+
+
+@media only screen and (max-width: 1000px) {
+    .hidden-xs {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .btn-sm {
+        padding: 0 4px 2px;
+    }
+}
+@media only screen and (max-width: 640px) {
+    #cal-container .cell.cell-with-tasks {
+        background-color: #138496;
+    }
+    #cal-container .cell.cell-with-tasks button{
+        display: none;
+    }
+}
