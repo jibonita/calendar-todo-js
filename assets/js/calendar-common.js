@@ -87,6 +87,10 @@ const fillInfoToCell = (updatedDay, tasksForDay)=> {
         class="badge badge-light visible-xs-block">${tasksForDay}</span>
         </button></div>`;
         $(`#d${updatedDay}`).append($(tasksHTML));
+
+        $(`#c${updatedDay}`).addClass('cell-with-tasks');
+    } else {
+        $(`#c${updatedDay}`).removeClass('cell-with-tasks');
     }
 };
 
