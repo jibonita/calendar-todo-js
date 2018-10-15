@@ -81,7 +81,9 @@ body{
 #week-days .btn btn-success{
       text-align: center;
 } 
-#week-days .btn btn-success:focus { outline: none; }
+.btn-success:not(:disabled):not(.disabled).active:focus{
+    box-shadow:none;
+}
 #month-name{
     margin: 10px 30px;
     color: white;
