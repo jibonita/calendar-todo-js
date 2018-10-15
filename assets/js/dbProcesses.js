@@ -3,7 +3,6 @@ let toDoElement;
 const DatabaseProcesses = {
   searchForDate: function(stringId) {
     toDoElement = toDosDataInfo.filter((x) => x.key === stringId)[0];
-    console.log(toDoElement);
     if (toDoElement === undefined) {
       toDoElement = {
         key: stringId,
@@ -15,12 +14,12 @@ const DatabaseProcesses = {
   },
   pushToDate: function(str) {
     toDoElement.toDo.push({
-      value: str,
+      value: str.trim(),
       important: false,
     });
   },
   editToDo: function(indexOfTask, str) {
-    toDoElement.toDo[indexOfTask].value = str;
+    toDoElement.toDo[indexOfTask].value = str.trim();
   },
   deleteToDo: function(indexOfTask) {
     toDoElement.toDo.splice([indexOfTask], 1);

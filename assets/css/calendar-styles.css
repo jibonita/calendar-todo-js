@@ -13,7 +13,13 @@ body {
     margin: 0 auto;
     margin-top: 30px;
     padding-left: 3%;
+    text-align: center;
 }
+
+#cal-container, #week-days{
+    text-align: left;
+}
+
 
 #week-days .weekday,
 #cal-container .cell {
@@ -99,9 +105,11 @@ body {
 }
 
 #month-name {
-    margin: 10px 30px;
+    display: inline-block;
+    margin: 10px auto;
     color: white;
     font-weight: bold;
+    
 }
 
 .view-md,
@@ -109,6 +117,15 @@ body {
     display: none;
 }
 
+.Team{
+    grid: auto;
+    color: white;
+    font-weight: 600;
+}
+.fa-rocket{
+    color: white;
+    
+}
 @media only screen and (max-width: 1170px) {
 
     .view-lg,

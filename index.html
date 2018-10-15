@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="assets/js/lib/jquery-2.1.4.min.js"></script>
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="assets/css/calendar-styles.css" type="text/css" rel="stylesheet" />
     <link href="assets/css/todos.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="./app-sample-calendar.ico">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script type="module" src="./assets/js/main.js"></script>
     <title>Calendar Planner by Team Raketa</title>
 </head>
 
 <body>
     <div id="main-calendar-container">
-        <button id="prev">Prev</button> &nbsp;&nbsp;<button id="next">Next</button>
+        <div class="nav-btns"><button id="prev" class="btn btn-info">Prev Month</button> &nbsp;&nbsp;<button id="next"
+                class="btn btn-info">Next Month</button></div>
         <span id="month-name"></span>
         <div id="week-days">
             <button type="button" class="btn btn-success weekday btn-default active">
@@ -37,6 +36,8 @@
                 <span class="view-lg">Sunday</span><span class="view-md">Sun</span><span class="view-sm">S</span></button>
         </div>
         <div id="cal-container"></div>
+        <i class="fas fa-rocket"></i>
+        <p class="Team"> Team Rocket </p>
     </div>
     <div id="todo-container">
         <div id="back-to-calendar"><span>Back to Calendar <i class="far fa-calendar-alt"></i></span></div>
@@ -45,9 +46,9 @@
         <input maxlength="35" class='addToDo hide' type="text" placeholder="Add New Todo">
         <ul id="toDos"></ul>
     </div>
-    <script type="text/javascript" src="assets/js/clock.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./dist/bundle.js"></script>
 </body>
 
 </html>
