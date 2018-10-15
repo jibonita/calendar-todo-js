@@ -14,12 +14,12 @@ const DatabaseProcesses = {
   },
   pushToDate: function(str) {
     toDoElement.toDo.push({
-      value: str,
+      value: str.trim(),
       important: false,
     });
   },
   editToDo: function(indexOfTask, str) {
-    toDoElement.toDo[indexOfTask].value = str;
+    toDoElement.toDo[indexOfTask].value = str.trim();
   },
   deleteToDo: function(indexOfTask) {
     toDoElement.toDo.splice([indexOfTask], 1);
