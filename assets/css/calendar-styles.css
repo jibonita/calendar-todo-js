@@ -3,90 +3,98 @@
     --cell-margin-right: 1%;
 }
 
-body{
-    background:url("./../img/background.jpg");
-    background-size: contain;
+body {
+    background: url("./../img/background.jpg");
+    background-size: auto;
 
 }
-#main-calendar-container{
+
+#main-calendar-container {
     width: 100%;
     margin-top: 30px;
     padding-left: 3%;
 }
-#week-days .weekday, 
-#cal-container .cell{
+
+#week-days .weekday,
+#cal-container .cell {
     display: inline-block;
     margin-right: var(--cell-margin-right);
     width: var(--cell-width);
-    overflow:hidden;
+    overflow: hidden;
 
 }
-#cal-container .cell{
+
+#cal-container .cell {
     padding: 1%;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
-    background-color: rgba(255,255,255,0.7); 
-   
+    background-color: rgba(255, 255, 255, 0.7);
+
 
     /* hack instead of border */
-    box-shadow: 
-    1px 0 0 0 #91928A, 
-    0 1px 0 0  #91928A , 
-    1px 1px 0 0 #91928A ,   
-     1px 0 0 0 #91928A inset, 
-    0 1px 0 0 #91928A inset; 
+    box-shadow:
+        1px 0 0 0 #91928A,
+        0 1px 0 0 #91928A,
+        1px 1px 0 0 #91928A,
+        1px 0 0 0 #91928A inset,
+        0 1px 0 0 #91928A inset;
 }
-#cal-container .cell:hover{
+
+#cal-container .cell:hover {
     cursor: pointer;
-    background-color: rgba(255,255,255,0.9); 
+    background-color: rgba(255, 255, 255, 0.9);
 }
-.cell-content{
+
+.cell-content {
     position: absolute;
     width: 98%;
     height: 98%;
 
-}    
+}
 
 #cal-container .cell:after {
     content: "";
     display: block;
-    padding-bottom: 100%; 
-  }
-
-
-.margin-1-cell{
-    margin-left: calc(var(--cell-width) + var(--cell-margin-right)); /* 13 width + 1 margin-right */
+    padding-bottom: 100%;
 }
-.margin-2-cell{
+
+
+.margin-1-cell {
+    margin-left: calc(var(--cell-width) + var(--cell-margin-right));
+    /* 13 width + 1 margin-right */
+}
+
+.margin-2-cell {
     margin-left: calc(2 * (var(--cell-width) + var(--cell-margin-right)));
 }
-.margin-3-cell{
+
+.margin-3-cell {
     margin-left: calc(3 * (var(--cell-width) + var(--cell-margin-right)));
 }
-.margin-4-cell{
+
+.margin-4-cell {
     margin-left: calc(4 * (var(--cell-width) + var(--cell-margin-right)));
 }
-.margin-5-cell{
+
+.margin-5-cell {
     margin-left: calc(5 * (var(--cell-width) + var(--cell-margin-right)));
 }
-.margin-6-cell{
+
+.margin-6-cell {
     margin-left: calc(6 * (var(--cell-width) + var(--cell-margin-right)));
 }
 
-#week-days{
+#week-days {
     margin-top: 20px
 }
-#week-days .weekday{
-      text-align: center;
-} 
 
-#month-name{
+#week-days .weekday {
+    text-align: center;
+}
+
+#month-name {
     margin: 10px 30px;
     color: white;
     font-weight: bold;
-}
-
-.important{
-    color: red;
 }

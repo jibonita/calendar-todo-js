@@ -1,14 +1,8 @@
-body {
-	font-family: Roboto;
-
-	/* background: linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); */
-
-}
-
 ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	font-family: Roboto;
 }
 
 
@@ -74,7 +68,6 @@ input:focus {
 #todo-container {
 	width: 360px;
 	margin: 100px auto;
-	/* background: #f7f7f7; */
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	display: none;
 	flex-direction: column;
@@ -86,18 +79,27 @@ input:focus {
 	text-decoration: line-through;
 }
 
+
+li>.star {
+	float: right;
+	width: 20px;
+	height: 20px;
+	padding-right: 15px;
+	display: inline;
+	/* padding-top: 10px; */
+}
+
+li> :last-child {
+
+	font-size: 20px;
+	padding-right: 30px;
+}
+
 li> :last-child :hover {
-
 	color: #e74c3c;
 }
 
-.hide {
-	display: none;
-}
 
-.important {
-	color: #e74c3c;
-}
 
 #back-to-calendar {
 	text-align: center;
@@ -107,9 +109,6 @@ li> :last-child :hover {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	background: rgb(199, 199, 199);
-	/* width: auto;
-	margin: 0 auto;
-	float: left; */
 }
 
 #back-to-calendar:hover {
@@ -122,16 +121,20 @@ li> :last-child :hover {
 	position: relative;
 	background: #f7f7f7;
 	text-align: center;
+	border: none;
 }
 
-.trash.hydrated{
-	color:blue;
+/* .svg-inline--fa.fa-star {
+	overflow: visible;
+	padding-bottom: 15px;
+} */
+
+.hide {
+	display: none;
 }
 
-.star.hydrated{
-	color:orange;
-	width: 20px;
-	height: 20px;
+.important {
+	color: #e74c3c;
 }
 
 /* .clock {
