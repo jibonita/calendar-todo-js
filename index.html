@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript" src="assets/js/lib/jquery-2.1.4.min.js"></script>
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="assets/css/calendar-styles.css" type="text/css" rel="stylesheet"/>
+    <link href="assets/css/calendar-styles.css" type="text/css" rel="stylesheet" />
     <link href="assets/css/todos.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="./app-sample-calendar.ico">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script type="module" src="./assets/js/main.js"></script>
     <title>Calendar Planner by Team Raketa</title>
 </head>
@@ -19,24 +19,22 @@
 <body>
     <div id="main-calendar-container">
         <button id="prev">Prev</button> &nbsp;&nbsp;<button id="next">Next</button>
-        <ion-icon name="star" class="importantstar" size="small"></ion-icon>
-        <ion-icon name="star" class="star" size="small"></ion-icon>
         <span id="month-name"></span>
         <div id="week-days">
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Monday</span><span class="view-md" >Mon</span><span class="view-sm" >M</span></button>
+                <span class="view-lg">Monday</span><span class="view-md">Mon</span><span class="view-sm">M</span></button>
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Tuesday</span><span class="view-md" >Tues</span><span class="view-sm" >T</span></button>
+                <span class="view-lg">Tuesday</span><span class="view-md">Tues</span><span class="view-sm">T</span></button>
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Wednesday</span><span class="view-md" >Wed</span><span class="view-sm" >W</span></button>
+                <span class="view-lg">Wednesday</span><span class="view-md">Wed</span><span class="view-sm">W</span></button>
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Thursday</span><span class="view-md" >Thur</span><span class="view-sm" >T</span></button>
+                <span class="view-lg">Thursday</span><span class="view-md">Thur</span><span class="view-sm">T</span></button>
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Friday</span><span class="view-md" >Fri</span><span class="view-sm" >F</span></button>
+                <span class="view-lg">Friday</span><span class="view-md">Fri</span><span class="view-sm">F</span></button>
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Saturday</span><span class="view-md" >Sat</span><span class="view-sm" >S</span></button>
+                <span class="view-lg">Saturday</span><span class="view-md">Sat</span><span class="view-sm">S</span></button>
             <button type="button" class="btn btn-success weekday btn-default active">
-                <span class="view-lg" >Sunday</span><span class="view-md" >Sun</span><span class="view-sm" >S</span></button>
+                <span class="view-lg">Sunday</span><span class="view-md">Sun</span><span class="view-sm">S</span></button>
         </div>
         <div id="cal-container"></div>
     </div>
@@ -44,13 +42,12 @@
         <div id="back-to-calendar"><span>Back to Calendar <i class="far fa-calendar-alt"></i></span></div>
         <div id="clock"><span id="txt" class="clock"></span></div>
         <h1>To-Do List <span id="toggle-form"><i class="fa fa-plus"></i></span></h1>
-        <input class='addToDo hide' type="text" placeholder="Add New Todo">
+        <input maxlength="35" class='addToDo hide' type="text" placeholder="Add New Todo">
         <ul id="toDos"></ul>
     </div>
     <script type="text/javascript" src="assets/js/clock.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
 </body>
 
 </html>

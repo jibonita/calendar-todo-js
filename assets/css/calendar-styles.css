@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
     --cell-width: 13%;
     --cell-margin-right: 1%;
@@ -134,3 +135,158 @@ body{
         display: block;
     }
 }
+=======
+:root {
+    --cell-width: 13%;
+    --cell-margin-right: 1%;
+}
+
+body {
+    background: url("./../img/backGroundOffice.jpg") no-repeat;
+    background-size: auto;
+}
+
+#main-calendar-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-left: 3%;
+}
+
+#week-days .weekday,
+#cal-container .cell {
+    display: inline-block;
+    margin-right: var(--cell-margin-right);
+    width: var(--cell-width);
+    overflow: hidden;
+
+}
+
+#cal-container .cell {
+    padding: 1%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.7);
+
+
+    /* hack instead of border */
+    box-shadow:
+        1px 0 0 0 #91928A,
+        0 1px 0 0 #91928A,
+        1px 1px 0 0 #91928A,
+        1px 0 0 0 #91928A inset,
+        0 1px 0 0 #91928A inset;
+}
+
+#cal-container .cell:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.cell-content {
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    box-shadow: 2;
+}
+
+#cal-container .cell:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+
+.margin-1-cell {
+    margin-left: calc(var(--cell-width) + var(--cell-margin-right));
+    /* 13 width + 1 margin-right */
+}
+
+.margin-2-cell {
+    margin-left: calc(2 * (var(--cell-width) + var(--cell-margin-right)));
+}
+
+.margin-3-cell {
+    margin-left: calc(3 * (var(--cell-width) + var(--cell-margin-right)));
+}
+
+.margin-4-cell {
+    margin-left: calc(4 * (var(--cell-width) + var(--cell-margin-right)));
+}
+
+.margin-5-cell {
+    margin-left: calc(5 * (var(--cell-width) + var(--cell-margin-right)));
+}
+
+.margin-6-cell {
+    margin-left: calc(6 * (var(--cell-width) + var(--cell-margin-right)));
+}
+
+#week-days {
+    margin-top: 20px;
+    font-size: 0
+}
+
+#week-days .btn btn-success {
+    text-align: center;
+}
+
+#week-days .btn btn-success:focus {
+    outline: none;
+}
+
+#month-name {
+    margin: 10px 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.view-md,
+.view-sm {
+    display: none;
+}
+
+@media only screen and (max-width: 1170px) {
+
+    .view-lg,
+    .view-sm {
+        display: none;
+    }
+
+    .view-md {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .hidden-xs {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .btn-sm {
+        padding: 0 4px 2px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #cal-container .cell.cell-with-tasks {
+        background-color: #138496;
+    }
+
+    #cal-container .cell.cell-with-tasks button {
+        display: none;
+    }
+
+    .view-lg,
+    .view-md {
+        display: none;
+    }
+
+    .view-sm {
+        display: block;
+    }
+}
+>>>>>>> 872c069a7144546144fde0a8d77a8839f443e485
