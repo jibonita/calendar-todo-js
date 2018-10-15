@@ -74,71 +74,71 @@ const editToDoHandler = (event) => {
 
 const endOfEditHandler = function (event) {
 
-		if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
-			const toDoNewText = $(this).val();
-			let index = findClickedElementIndex(newToDoTaskText)
-			DatabaseProcesses
-				.editToDo(index, toDoNewText);
-			$(this).val('');
+	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
+		const toDoNewText = $(this).val();
+		let index = findClickedElementIndex(newToDoTaskText)
+		DatabaseProcesses
+			.editToDo(index, toDoNewText);
+		$(this).val('');
 
-			trueOrFalseImportant(toDoElement.toDo[index].important == true, $(this), toDoNewText
-			}
-		};
-		const deleteToDoTaskHandler = (event) => {
+		trueOrFalseImportant(toDoElement.toDo[index].important == true, $(this), toDoNewText)
+	}
+};
+const deleteToDoTaskHandler = (event) => {
 
-			let toDoToDelete = $(event.target).closest('li');
+	let toDoToDelete = $(event.target).closest('li');
 
-			const toDoToDeleteContent = toDoToDelete.text();
+	const toDoToDeleteContent = toDoToDelete.text();
 
-			const index = findClickedElementIndex(toDoToDeleteContent);
-			DatabaseProcesses.deleteToDo(index);
-			toDoToDelete
-				.fadeOut(500, function () {
-					$(this).remove();
-				});
-			event.stopPropagation();
-		};
-		const addNewToDoHandler = (event) => {
-			if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
-				const todoText = $(event.target).val();
-				$(event.target).val('');
-				$('ul').append(
-					'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-					todoText +
-					'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
-				);
-				DatabaseProcesses.pushToDate(todoText);
-			}
-		};
-		const toggleInputHandler = () => {
-			$('input.addToDo').fadeToggle(300, () => $(this).toggleClass('.hide'));
-		};
+	const index = findClickedElementIndex(toDoToDeleteContent);
+	DatabaseProcesses.deleteToDo(index);
+	toDoToDelete
+		.fadeOut(500, function () {
+			$(this).remove();
+		});
+	event.stopPropagation();
+};
+const addNewToDoHandler = (event) => {
+	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
+		const todoText = $(event.target).val();
+		$(event.target).val('');
+		$('ul').append(
+			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+			todoText +
+			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+		);
+		DatabaseProcesses.pushToDate(todoText);
+	}
+};
+const toggleInputHandler = () => {
+	$('input.addToDo').fadeToggle(300, () => $(this).toggleClass('.hide'));
+};
 
-		const toggleImportancyHandler = (event) => {
-			const importancyStarText = $(event.target).closest('li').text();
-			const index = findClickedElementIndex(importancyStarText);
-			DatabaseProcesses.editImportance(index);
-			$(event.target).closest('span').toggleClass('important');
+const toggleImportancyHandler = (event) => {
+	const importancyStarText = $(event.target).closest('li').text();
+	const index = findClickedElementIndex(importancyStarText);
+	DatabaseProcesses.editImportance(index);
+	$(event.target).closest('span').toggleClass('important');
 
-			event.stopPropagation();
-		};
-		const toggleCalendar = () => {
-			$('ul').empty();
-			$(constants.TODO_CONTAINER).trigger('todoclosed');
-		};
-		const setToDoEvents = function () {
-			$('ul').on('click', 'li', editToDoHandler);
-			$('ul').on('keypress', 'input', endOfEditHandler);
-			$('ul').on('click', 'span.trash', deleteToDoTaskHandler);
-			$('input.addToDo').keypress(addNewToDoHandler);
-			$('#toggle-form').on('click', toggleInputHandler);
-			$('ul').on('click', '.svg-inline--fa.fa-star', toggleImportancyHandler);
-			$('#back-to-calendar').on('click', toggleCalendar);
-		};
+	event.stopPropagation();
+};
+const toggleCalendar = () => {
+	$('ul').empty();
+	$(constants.TODO_CONTAINER).trigger('todoclosed');
+};
+const setToDoEvents = function () {
+	$('ul').on('click', 'li', editToDoHandler);
+	$('ul').on('keypress', 'input', endOfEditHandler);
+	$('ul').on('click', 'span.trash', deleteToDoTaskHandler);
+	$('input.addToDo').keypress(addNewToDoHandler);
+	$('#toggle-form').on('click', toggleInputHandler);
+	$('ul').on('click', '.svg-inline--fa.fa-star', toggleImportancyHandler);
+	$('#back-to-calendar').on('click', toggleCalendar);
+};
 
-		export {
-			todoDataVisualization
-		};
-		export {
-			setToDoEvents
-		};
+export {
+	todoDataVisualization
+};
+export {
+	setToDoEvents
+};
