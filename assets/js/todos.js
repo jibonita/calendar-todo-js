@@ -42,7 +42,8 @@ const todoDataVisualization = (todoObj) => {
 			// 	);
 			// } else {
 			// 	$('#toDos').append(
-			// 		'<li><fake /><span class="trashcontainer"><ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
+			// 		'<li><fake /><span class="trashcontainer">
+			// <ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
 			// 		todoObj.toDo[i].value +
 			// 		'<span class="starcontainer"><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
 			// 	);
@@ -66,7 +67,7 @@ const endOfEditHandler = (event) => {
 		DatabaseProcesses
 			.editToDo(findClickedElementIndex(newToDoTaskText), toDoNewText);
 		$(this).val('');
-
+		
 		// TODO: refactor with function getTaskHTMLCode(text, importancyFlag)
 		$(this).replaceWith(
 			`<li><span></span><span class="trashcontainer">
