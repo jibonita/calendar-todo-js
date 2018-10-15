@@ -3,7 +3,6 @@ let toDoElement;
 const DatabaseProcesses = {
   searchForDate: function(stringId) {
     toDoElement = toDosDataInfo.filter((x) => x.key === stringId)[0];
-    console.log(toDoElement);
     if (toDoElement === undefined) {
       toDoElement = {
         key: stringId,

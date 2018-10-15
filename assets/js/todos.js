@@ -7,22 +7,30 @@ import {
 	constants
 } from './constants.js';
 
-const trueOrFalseImportant = (condition, element, textToAppend) => {
-	if (condition) {
-		element.replaceWith(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-			textToAppend +
-			'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
-		);
-	} else {
-		element.replaceWith(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-			textToAppend +
-			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
-		);
-	}
+// const trueOrFalseImportant = (condition, element, textToAppend) => {
+// 	if (condition) {
+// 		element.replaceWith(
+// 			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+// 			textToAppend +
+// 			'<span class=\'star important\'><i class=\'fa fa-star\'></i></span></li>'
+// 		);
+// 	} else {
+// 		element.replaceWith(
+// 			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+// 			textToAppend +
+// 			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+// 		);
+// 	}
 
-}
+// };
+
+const getTaskHTMLCode = (textToAdd, importancyFlag) => {
+	const important = importancyFlag ? 'important' : '';
+	return '<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>'
+		+ textToAdd
+		+ `<span class=\'star ${important}\'>
+			<i class=\'fa fa-star\'></i></span></li>`;
+};
 
 const findClickedElementIndex = (textToFind) => {
 	let ClickedElementIndex = 0;
@@ -67,7 +75,8 @@ const editToDoHandler = (event) => {
 	$('#editInput').blur(() => {
 		let index = findClickedElementIndex(newToDoTaskText)
 
-		trueOrFalseImportant(toDoElement.toDo[index].important == true, $('#editInput'), newToDoTaskText)
+		//trueOrFalseImportant(toDoElement.toDo[index].important == true, $('#editInput'), newToDoTaskText)
+		$('#editInput').replaceWith(getTaskHTMLCode(newToDoTaskText, toDoElement.toDo[index].important));
 	});
 
 };
@@ -81,7 +90,8 @@ const endOfEditHandler = function (event) {
 			.editToDo(index, toDoNewText);
 		$(this).val('');
 
-		trueOrFalseImportant(toDoElement.toDo[index].important == true, $(this), toDoNewText)
+		//trueOrFalseImportant(toDoElement.toDo[index].important == true, $(this), toDoNewText);
+		$(this).replaceWith(getTaskHTMLCode(toDoNewText, toDoElement.toDo[index].important));
 	}
 };
 const deleteToDoTaskHandler = (event) => {
@@ -102,11 +112,12 @@ const addNewToDoHandler = (event) => {
 	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
 		const todoText = $(event.target).val();
 		$(event.target).val('');
-		$('ul').append(
-			'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
-			todoText +
-			'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
-		);
+		$('ul').append(getTaskHTMLCode(todoText, false));
+		// $('ul').append(
+		// 	'<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>' +
+		// 	todoText +
+		// 	'<span class=\'star\'><i class=\'fa fa-star\'></i></span></li>'
+		// );
 		DatabaseProcesses.pushToDate(todoText);
 	}
 };
@@ -137,8 +148,6 @@ const setToDoEvents = function () {
 };
 
 export {
-	todoDataVisualization
-};
-export {
+	todoDataVisualization,
 	setToDoEvents
 };
