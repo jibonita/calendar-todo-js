@@ -75,7 +75,8 @@ body{
 }
 
 #week-days{
-    margin-top: 20px
+    margin-top: 20px;
+    font-size:0
 }
 #week-days .btn btn-success{
       text-align: center;
@@ -91,6 +92,19 @@ body{
     color: red;
 }
 
+
+.view-md, .view-sm {
+    display: none;
+}
+
+@media only screen and (max-width: 1170px) {
+    .view-lg, .view-sm {
+        display: none;
+    }
+    .view-md {
+        display: block;
+    }
+}
 
 @media only screen and (max-width: 1000px) {
     .hidden-xs {
@@ -109,5 +123,12 @@ body{
     }
     #cal-container .cell.cell-with-tasks button{
         display: none;
+    }
+
+    .view-lg, .view-md{
+        display: none;
+    }
+    .view-sm {
+        display: block;
     }
 }
