@@ -19,7 +19,6 @@ const getTaskHTMLCode = (text, importancyFlag) => {
 
 const findClickedElementIndex = (textToFind) => {
 	let ClickedElementIndex = 0;
-	// console.log(toDoElement.toDo, textToFind);
 	toDoElement.toDo.filter((element, i) => {
 		if (element.value === textToFind) {
 			ClickedElementIndex = i;
@@ -34,20 +33,6 @@ const todoDataVisualization = (todoObj) => {
 			const isImportant = todoObj.toDo[i].important;
 
 			$('#toDos').append(getTaskHTMLCode(todoObj.toDo[i].value, isImportant));
-			// if (isImportant) {
-			// 	$('#toDos').append(
-			// 		'<li><span><ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
-			// 		todoObj.toDo[i].value +
-			// 		'<span><ion-icon name="star" role="img" class="star"></ion-icon></span></li>'
-			// 	);
-			// } else {
-			// 	$('#toDos').append(
-			// 		'<li><fake /><span class="trashcontainer">
-			// <ion-icon name="trash" role="img" class="trash"></ion-icon></span>' +
-			// 		todoObj.toDo[i].value +
-			// 		'<span class="starcontainer"><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
-			// 	);
-			// }
 		}
 	}
 };
@@ -67,8 +52,6 @@ const endOfEditHandler = (event) => {
 		DatabaseProcesses
 			.editToDo(findClickedElementIndex(newToDoTaskText), toDoNewText);
 		$(this).val('');
-		
-		// TODO: refactor with function getTaskHTMLCode(text, importancyFlag)
 		$(this).replaceWith(
 			`<li><span></span><span class="trashcontainer">
 			<ion-icon name="trash" class="trash"></ion-icon></span>` +
@@ -83,12 +66,12 @@ const addNewToDoHandler = (event) => {
 	if (event.which === constants.ENTER_BUTTON_EVENT_CODE) {
 		const todoText = $(event.target).val();
 		$(event.target).val('');
-
-		// TODO: refactor using function getTaskHTMLCode(text, importancyFlag)
 		$('ul').append(
-			'<li><span></span><span class="trashcontainer"><ion-icon name="trash" class="trash"></ion-icon></span>' +
+			'<li><span></span><span class="trashcontainer">'+
+			'<ion-icon name="trash" class="trash"></ion-icon></span>' +
 			todoText +
-			'<span class="starcontainer"><ion-icon name="star" role="img" class="star" ></ion-icon></span></li>'
+			'<span class="starcontainer"><ion-icon name="star" '+
+			'role="img" class="star" ></ion-icon></span></li>'
 		);
 		DatabaseProcesses.pushToDate(todoText);
 	}
@@ -112,11 +95,9 @@ const deleteToDoTaskHandler = (event) => {
 };
 
 const toggleImportancyHandler = (event) => {
-	// const importancyStarText = $(event.target).parent().parent().parent().text();
 	const importancyStarText = $(event.target).closest('li').text();
 	const index = findClickedElementIndex(importancyStarText);
 	DatabaseProcesses.editImportance(index);
-	// $(event.target).toggleClass('important');
 	$(event.target).toggleClass('star importantstar');
 	event.stopPropagation();
 };

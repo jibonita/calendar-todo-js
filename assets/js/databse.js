@@ -64,7 +64,6 @@ const toDosDataInfo = [{
             value: 'Ask for individual protocol',
             important: false,
         },
-        
     ],
 },
 {
