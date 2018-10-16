@@ -116,14 +116,11 @@ body {
 .view-sm {
     display: none;
 }
-
-.Team{
-    grid: auto;
-    color: white;
-    font-weight: 600;
-}
 .fa-rocket{
-    color: white;
+    color:white;
+}
+.Team{
+    color:white;
 }
 @media only screen and (max-width: 1170px) {
 
