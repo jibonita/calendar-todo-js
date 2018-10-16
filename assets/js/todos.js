@@ -5,9 +5,9 @@ import { constants } from './constants.js';
 const getTaskHTMLCode = (textToAdd, importancyFlag) => {
 	const important = importancyFlag ? 'important' : '';
 	return '<li><span class=\'trash\'><i class=\'fa fa-trash\'></i></span>'
-		+ textToAdd
-		+ `<span class=\'star ${important}\'>
-			<i class=\'fa fa-star\'></i></span></li>`;
++ textToAdd+
+`<span class=\'star ${important}\>`+
+`<i class=\'fa fa-star\'></i></span></li>`;
 };
 
 const findClickedElementIndex = (textToFind) => {
